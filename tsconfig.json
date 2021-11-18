@@ -14,10 +14,11 @@
     "esModuleInterop": true,
     "declaration": true,
     "declarationDir": "lib",
-    "baseUrl": "./src"
+    "baseUrl": "src"
   },
   "exclude": ["node_modules", "lib"],
-  "path": {
-    "components/*": "./components/*"
+  "paths": {
+    "components/*": ["./components/*"],
+    "utils/*": ["./utils/*"]
   }
 }

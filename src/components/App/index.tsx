@@ -1,5 +1,14 @@
 import { FunctionComponent } from 'react';
+import { useMouse } from 'utils/react';
 
 export const App: FunctionComponent = () => {
-  return <div>Hello world</div>;
+  useMouse('down', () => {
+    console.log('DOWN');
+  });
+
+  useMouse('up', () => {
+    console.log('UP');
+  });
+
+  return <main>Hello world</main>;
 };

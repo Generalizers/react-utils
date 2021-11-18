@@ -1,7 +1,7 @@
 {
-  "name": "react-dev-template",
+  "name": "react-utils",
   "version": "1.0.0",
-  "description": "",
+  "description": "A react utils structure with some react helpers to make programming faster with react and typescript.",
   "main": "./src/module.ts",
   "module": "./lib/module.js",
   "types": "./lib/module.d.ts",
@@ -18,20 +18,30 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlanBlanchet/react-dev-template.git"
+    "url": "git+https://github.com/Generalizers/react-utils.git"
   },
   "keywords": [
     "template",
     "react",
     "webpack",
-    "lib"
+    "lib",
+    "react",
+    "utils",
+    "react-utils",
+    "react-helpers",
+    "helpers",
+    "typescript"
   ],
-  "author": "Alan Blanchet",
+  "author": {
+    "name": "Alan Blanchet",
+    "email": "contact@alan-blanchet.fr",
+    "url": "https://github.com/AlanBlanchet"
+  },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AlanBlanchet/react-dev-template/issues"
+    "url": "https://github.com/Generalizers/react-utils/issues"
   },
-  "homepage": "https://github.com/AlanBlanchet/react-dev-template#readme",
+  "homepage": "https://github.com/Generalizers/react-utils#readme",
   "files": [
     "lib/"
   ],
