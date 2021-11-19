@@ -1,32 +1,4 @@
-import {
-  DependencyList,
-  MutableRefObject,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
-
-/**
- * Combination of useState and useRef
- * @param initialState The initial state
- * @returns The reference and the setState function
- */
-export const useStateRef = <T extends unknown>(
-  initialState: T | (() => T)
-): [MutableRefObject<T>, (data: T) => void] => {
-  const [state, setState] = useState<T>(initialState);
-  const ref = useRef(state);
-  useEffect(() => {
-    ref.current = state;
-  }, [state]);
-  return [
-    ref,
-    (data: T) => {
-      ref.current = data;
-      setState(data);
-    },
-  ];
-};
+import { DependencyList, useEffect } from 'react';
 
 /**
  * Allows to use a document event listener
@@ -37,7 +9,7 @@ export const useStateRef = <T extends unknown>(
 export const useEvent = (
   type: keyof DocumentEventMap,
   f: (this: Document, ev: DocumentEventMap[keyof DocumentEventMap]) => any,
-  deps?: DependencyList
+  deps?: DependencyList,
 ) => {
   useEffect(() => {
     document.addEventListener(type, f);
@@ -68,12 +40,12 @@ type MouseType =
 export const useKey = (
   type: KeyType,
   f: (this: Document, ev: KeyboardEvent) => any,
-  deps?: DependencyList
+  deps?: DependencyList,
 ) => {
   useEvent(
     `key${type}`,
     f as (this: Document, ev: DocumentEventMap[keyof DocumentEventMap]) => any,
-    deps
+    deps,
   );
 };
 
@@ -87,11 +59,11 @@ export const useKey = (
 export const useMouse = (
   type: MouseType,
   f: (e: MouseEvent) => any,
-  deps?: DependencyList
+  deps?: DependencyList,
 ) => {
   useEvent(
     type == 'click' ? type : `mouse${type}`,
     f as (this: Document, ev: DocumentEventMap[keyof DocumentEventMap]) => any,
-    deps
+    deps,
   );
 };
