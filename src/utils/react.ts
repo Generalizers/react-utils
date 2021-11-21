@@ -67,3 +67,26 @@ export const useMouse = (
     deps,
   );
 };
+
+/**
+ * A subset of useEffect but with the global
+ * document event listener
+ * @param f The document callback
+ * @param deps The dependency list
+ */
+export const useContextMenu = (
+  f: (e: Event) => any,
+  deps?: DependencyList
+): void => {
+  useEvent(
+    'contextmenu',
+    f as (this: Document, ev: DocumentEventMap[keyof DocumentEventMap]) => any,
+    deps
+  );
+};
+
+export enum Click {
+  Left,
+  Middle,
+  Right,
+}
