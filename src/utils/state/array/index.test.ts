@@ -1,4 +1,4 @@
-import { StateArray } from '.';
+import { PROXY_ARRAY_OVERRIDE, StateArray } from '.';
 
 test('Array with 1 value exists', () => {
   const arr = new StateArray<number>([1], () => {});
@@ -38,4 +38,15 @@ test('Array splice returns deleted element', () => {
   const deleted = arr.splice(0, 1);
 
   expect(deleted[0] == 3).toBe(true);
+});
+
+test('Array proxy override setting element', () => {
+  const arr = new Proxy(
+    new StateArray<number>([3], () => {}),
+    PROXY_ARRAY_OVERRIDE(() => {}),
+  );
+
+  arr[0] = 5;
+
+  expect(arr[0] === 5).toBe(true);
 });
