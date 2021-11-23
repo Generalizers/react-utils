@@ -1,6 +1,6 @@
 import { FunctionComponent, useState } from 'react';
-import { useMouse } from 'utils/react';
-import { useStateArray } from 'utils/state/array';
+import { useMouse } from '../../utils/react';
+import { useStateArray } from '../../utils/state/array';
 
 export const App: FunctionComponent = () => {
   const rand10 = () => Math.round(Math.random() * 10);
@@ -15,7 +15,7 @@ export const App: FunctionComponent = () => {
       console.log('DOWN');
       numberStateArray.set(randArr());
     },
-    [numberStateArray]
+    [numberStateArray],
   );
 
   useMouse('up', () => {
