@@ -1,0 +1,11 @@
+# modules
+node_modules
+
+# Builds
+build
+dist
+prod
+
+# npm
+package-lock.json
+*.tgz
