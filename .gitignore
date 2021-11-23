@@ -5,6 +5,7 @@ node_modules
 build
 dist
 prod
+lib
 
 # npm
 package-lock.json
