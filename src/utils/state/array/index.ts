@@ -18,7 +18,7 @@ export const useStateArray = <T extends any>(initialState: T[]) => {
 export class StateArray<T> extends Array<T> {
   set: Dispatch<React.SetStateAction<T[]>>;
   constructor(items: T[], setItems: Dispatch<React.SetStateAction<T[]>>) {
-    super(...items);
+    super(...(items.length == 1 ? ([items] as unknown as T[]) : items));
     // Set the prototype explicitly for es2015
     Object.setPrototypeOf(this, Array.prototype);
     this.set = setItems;
@@ -33,7 +33,7 @@ export class StateArray<T> extends Array<T> {
     return this.dispatch(super.reverse());
   };
   shift: () => T | undefined = (): T | undefined => {
-    return this.shift();
+    return this.dispatch(super.shift());
   };
   splice: (start: any, deleteCount?: any, ...rest: any[]) => T[] = (
     start: any,
@@ -48,7 +48,7 @@ export class StateArray<T> extends Array<T> {
   fill: (value: T, start?: number, end?: number) => any = (
     value: T,
     start?: number,
-    end?: number
+    end?: number,
   ) => {
     return this.fill(value, start, end) as typeof this;
   };
