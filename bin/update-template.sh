@@ -6,7 +6,7 @@ if [ -z "$(which git)" ]; then
 fi
 
 if ! git ls-remote template; then
-  git remote add template git@github.com:Generalizers/template-tsx.git
+  git remote add template git@github.com:Generalizers/template-tsx-lib.git
   echo "Added new template remote"
   git remote set-url --push template FORBIDDEN
   echo "Disabled push for template remote"
