@@ -1,6 +1,6 @@
 {
   "name": "@generalizers/react-utils",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A react utils structure with some react helpers to make programming faster with react and typescript.",
   "main": "./src/module.ts",
   "module": "./lib/module.js",
