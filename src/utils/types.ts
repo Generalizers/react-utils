@@ -3,8 +3,7 @@ export type ArrayLengthMutationKeys =
   | 'push'
   | 'pop'
   | 'shift'
-  | 'unshift'
-  | number;
+  | 'unshift';
 export type ArrayItems<T extends Array<any>> = T extends Array<infer TItems>
   ? TItems
   : never;
