@@ -1,3 +1,7 @@
+import { FixedLengthArrayOrAny } from './state/array/types';
+
+export type Unpacked<T> = T extends FixedLengthArrayOrAny<(infer U)[]> ? U : T;
+
 export type ArrayLengthMutationKeys =
   | 'splice'
   | 'push'
@@ -21,16 +25,16 @@ export type FixedLengthArrayMin<T extends any[]> = FixedLengthArray<T> & {
  * The representation of a position.
  * Equivalent to [number, number]
  */
-export type Position = FixedLengthArrayMin<[number, number]>;
+export type Position = FixedLengthArray<[number, number]>;
 
 /**
  * The representation of a range.
  * Equivalent to [number, number]
  */
-export type NumberRange = FixedLengthArrayMin<[number, number]>;
+export type NumberRange = FixedLengthArray<[number, number]>;
 
 /**
  * The representation of an Offset.
  * Equivalent to [number, number]
  */
-export type Offset = FixedLengthArrayMin<[number, number]>;
+export type Offset = FixedLengthArray<[number, number]>;

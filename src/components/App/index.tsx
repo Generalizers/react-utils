@@ -1,33 +1,33 @@
-import { NumberRange, Position } from '../../module';
+import { NumberRange, Position, useStateArray } from '../../module';
 import { useMouse } from '../../utils/react';
-import { useStateArray } from '../../utils/state/array';
 import { FunctionComponent, useState } from 'react';
 
 export const App: FunctionComponent = () => {
-  const rand10 = () => Math.round(Math.random() * 10);
+  const rand10 = () => Math.round(Math.random() * 5);
   const randArr = () => {
     return [...new Array(20).keys()].map((n) => Math.round(rand10()));
   };
-  const numberStateArray = useStateArray<NumberRange>([1, 10]);
+  const arr = useStateArray()([1, 3, 6], {
+    distance: true,
+  });
 
   useMouse(
     'down',
     () => {
-      console.log('DOWN');
-      numberStateArray.set([10, 4]);
+      const r = rand10();
+      console.log('ADD', r);
+
+      arr.push(r);
     },
-    [numberStateArray],
+    [arr],
   );
 
-  useMouse('up', () => {
-    console.log('UP');
-  });
-
+  console.log('arr', arr);
   return (
-    <main>
-      {numberStateArray.map((n, i) => (
-        <p key={`n-${i}`}>{n}</p>
+    <div>
+      {arr.map((e, i) => (
+        <p key={i}>{e}</p>
       ))}
-    </main>
+    </div>
   );
 };
